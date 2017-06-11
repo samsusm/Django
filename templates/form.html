@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{%block title%}Index{% endblock %}
+
+{% block login_form%}
+  {%if form%}
+  <div class="row">
+    <div class="col-md-4 pull-right">
+      <h1>{{body_text}}</h1>
+      <form action="/" method="POST" >
+        {% csrf_token %}
+        {{form|crispy}}
+        <input class="btn btn-primary" type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}
